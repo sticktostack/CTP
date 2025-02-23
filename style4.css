@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    user-select: none;
+    position: relative;
+}
+
+.main{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    /* background-color: brown; */
+    background: linear-gradient(135deg, #009dff, #3200e7, #bf00ff, #ea00a4);
+    /* background: linear-gradient(to right, #7500e3 30%, #8401dc 30%, #01cddc, #00efd3); */
+}
+.nav{
+    height: 110px;
+    width: 100%;
+    /* background-color: antiquewhite; */
+    display: flex;
+}
+.nleft>h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.nleft{
+    height: 100%;
+     display: flex;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+    width: 30%;
+    /* background-color: aqua; */
+}
+.nmid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 40%;
+    /* background-color: cadetblue; */
+}   
+.nleft>img{
+    width: 190px;
+    /* height: 10px; */
+}
+.timer {
+    font-size: 2.3em;
+    margin-bottom: 5px;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+color: rgb(0, 255, 68);
+transition: ease all 1s;
+}
+.nright{
+    height: 100%;
+    width: calc(100% - 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgb(9, 219, 226); */
+}
+.nright>i{
+    color: rgb(255, 255, 0);
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 700;
+}
+.points{
+    color: rgb(255, 255, 0);
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.startbtn{
+    padding: 4px 80px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(255, 81, 0);
+    color: #000000;
+    transition: ease 0.4s;
+    font-size: 30px;
+    font-weight: 700;
+
+}
+.startbtn:hover{
+  cursor: pointer;
+  background-color: rgb(60, 255, 0);
+}
+.hero{
+    height: calc(100% - 110px);
+    /* background-color: yellowgreen; */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+.hero>h2{
+    margin: 20px;
+    color: #ffffffbb;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 45px;
+}
+.hero>p{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    color: #fff;
+    font-size: 20px;
+}
+.hero > .wordbox{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: rgb(242, 255, 0);
+    font-family: monospace;
+    font-size: 40px;
+    margin: 15px;
+    border-radius: 10px;
+    width: 400px;
+    letter-spacing: 2svw;
+    background-color: rgba(240, 248, 255, 0.445);
+}
+.words{
+    opacity: 0;
+}
+.hero>h5{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: yellow;
+    /* border: 1px solid yellow; */
+    padding: 5px 5px;
+    /* border-radius: 10px; */
+    font-size: 20px;
+}
+.hints{
+    color: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    opacity: 0;
+}
+.userinputarea{
+    height: 130px;
+    width: 550px;
+    margin: 15px;
+    /* background-color: wheat; */
+}
+.prevbtn,.skipbtn{
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background-color: rgba(245, 222, 179, 0.4);
+    font-size: 20px;
+    color: yellow;
+    padding: 15px;
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+.prevbtn:hover{
+    color: #000;
+    background-color: yellow;
+}
+.skipbtn:hover{
+    color: #000;
+    background-color: yellow;
+}
+.searcharea{
+    padding: 15px;
+    background-color: #ffffff6d;
+    outline: none;
+    border: none;
+    height: 20px;
+    color: #fff;
+    font-family: monospace;
+    width: 300px;
+    border-radius: 50px;
+}
+.searcharea::placeholder{
+    width: 450px;
+    color: #fff;
+    padding-left:10px;
+}
+.submitbtn{
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 25px;
+    outline: none;
+    cursor: pointer;
+    margin-top:20px ;
+    border-radius: 50px;
+    transition: all ease 0.4s;
+}
+.submitbtn:hover{
+    background-color: tomato;
+    color: #fff;
+    /* border: none; */
+    padding: 5px 20px;
+}

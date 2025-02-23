@@ -4,21 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTP - Crack The Password</title>
+    <title>CTP - CLI</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="lastpage"><h1>YOUR TIME IS UP</h1></div>
-    <div class="finishpage"><h1>CONGRATULATIONS</h1></div>
+    <div class="lastpage">
+        <h1>YOUR TIME IS UP</h1>
+    </div>
+    <div class="finishpage">
+        <h1>CONGRATULATIONS</h1>
+    </div>
     <div class="main">
         <div class="nav">
             <div class="nleft">
                 <img src="./logo.png" alt="" class="logo">
             </div>
             <div class="nmid">
-                
+
                 <div class="timer">40:00</div>
                 <button class="startbtn" onclick="startTimer()"><i class="ri-google-play-fill"></i></button>
             </div>
@@ -34,13 +38,17 @@
                     <h3>INSTRUCTIONS</h3>
                 </div>
                 <div class="instructions">
-                    #example 1 ____________________<br>
-                    #example 2 ____________________<br>
-                    #example 3 _____________________<br>
+                    <p>1. Download the file from the button given beside.</p><br>
+                    <p>2.  Go to the desktop and right click on the file <span>run_CLI-files.sh</span></p><br>
+                    <p>3. Click on "open".</p><br>
+                    <p>4. A dialogue box will appear, click on "run"</p><br>
+                    <p>5. You have your terminal window running, guess the right password through the hints section and enter. 
+                    </p><br>
+                    <p>6. If you are able to enter the right password, it will give you the secret message, copy it and paste it into the portal to gain points.</p>
                 </div>
                 <h2>HINTS</h2>
-                <p class="hints">1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, provident!</p>
-               
+                <p class="hints">TAP ON SKIP BUTTON TO GET THE HINTS</p>
+
                 <div class="nxtskipbtns">
                     <button class="prevbtn"><i class="ri-skip-back-fill"></i></button>
                     <button class="skipbtn"><i class="ri-skip-forward-fill"></i></button>
@@ -49,11 +57,16 @@
             <div class="answerbox">
                 <form action="">
 
-                    <input type="text" class="inputbox" placeholder="Type the password here">
+                    <input type="text" class="inputbox" placeholder="Type the secret message here">
                     <input type="submit" class="submitbtn">
 
-                </form>
-                <button class="finishbtn" role="button"><span class="text">FINISH</span></button>
+                </form> 
+                <a href="./index2.html" target="_blank">
+
+                <button class="finishbtn" role="button"><span class="text">Next Segment</span></button>
+
+
+                </a>
             </div>
 
         </div>
