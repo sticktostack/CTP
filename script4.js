@@ -5,6 +5,14 @@ let hints = document.querySelector(".hints");
 let words = document.querySelector(".words");
 let startbtn = document.querySelector('.startbtn')
 let currentIndex = 0; // To keep track of the current word/hint index
+let counter = false;
+
+let timeLeft = localStorage.getItem("timeLeft") 
+  ? parseInt(localStorage.getItem("timeLeft")) 
+  : 40 * 60;
+
+let timer = null;
+let isTimerRunning = localStorage.getItem("isTimerRunning") === "true";
 
 let arrayofWords = ["elmbio", "edrfin", "dguetb", "tvelra"];
 let arrayofHints = [
@@ -23,36 +31,92 @@ function updateDisplay() {
 
 
 startbtn.addEventListener("click", () => {
+
+    setTimeout(() => {
+        document.querySelector('.startbtn').innerHTML = "Game Started";
+    }, 100);
+
     hints.style.opacity = 1;
     words.style.opacity = 1;
     currentIndex = 0; 
+    counter = true;
+
+    setTimeout(() => {
+        document.querySelector('.startbtn').style.opacity = 0
+    }, 500);
+
     updateDisplay();
+
+    if (!isTimerRunning) {
+        startTimer();
+    }
 });
 
 
 skipbtn.addEventListener("click", (e) => {
     e.preventDefault()
-    if(currentIndex < arrayofHints.length - 1){
-        currentIndex++;
-        updateDisplay()
+
+    if(counter === true){
+        if(currentIndex < arrayofHints.length - 1){
+            currentIndex++;
+            updateDisplay()
+        }else{
+            alert("no more hints left")
+        }
+        updateDisplay();
     }else{
-        alert("no more hints left")
+        alert("start the game first")
     }
-    updateDisplay();
+    
 });
 
 
 prevbtn.addEventListener("click", (e) => {
     e.preventDefault()
-    if(currentIndex > 0){
-        currentIndex--;
-        updateDisplay()
+    if(counter === true){
+        if(currentIndex > 0){
+            currentIndex--;
+            updateDisplay()
+        }else{
+            alert("no more hints left")
+        }
+        updateDisplay();
     }else{
-        alert("no more hints left")
+        alert("start the game first")
     }
-    updateDisplay();
+    
 });
 
+function updateDisplayforTime() {
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    document.querySelector(".timer").textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  }
+
+  function startTimer() {
+    if (!timer) {
+      isTimerRunning = true;
+      localStorage.setItem("isTimerRunning", "true");
+  
+      timer = setInterval(() => {
+        if (timeLeft > 0) {
+          timeLeft--;
+          localStorage.setItem("timeLeft", timeLeft);
+          updateDisplayforTime();
+        } else {
+          clearInterval(timer);
+          localStorage.setItem("isTimerRunning", "false");
+        }
+      }, 1000);
+    }
+  }
+  
+  // Resume timer immediately on page load
+  if (isTimerRunning) {
+    startTimer();
+  }
+
+  updateDisplayforTime();
 // console.log(2%4);
 
 // currentIndex = (currentIndex + 1) % arrayofWords.length; // Loop to start if end is reached

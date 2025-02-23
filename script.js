@@ -23,6 +23,9 @@ let arrayofHints = [
 
 startbtn.addEventListener("click", () => {
   counter = true;
+    hints.style.opacity = 1;
+    hints.textContent = arrayofHints[hintIndex];
+
   setTimeout(() => {
     startbtn.textContent = "Game Started";
   }, 100);
@@ -46,21 +49,28 @@ function updateDisplay() {
 }
 
 function startTimer() {
-  if (!isTimerRunning) {
+  if (!timer) {
     isTimerRunning = true;
-    localStorage.setItem("isTimerRunning", true); // Set the flag in localStorage
+    localStorage.setItem("isTimerRunning", "true");
+    
     timer = setInterval(() => {
       if (timeLeft > 0) {
         timeLeft--;
-        localStorage.setItem("timeLeft", timeLeft); // Save the remaining time to localStorage
+        localStorage.setItem("timeLeft", timeLeft);
         updateDisplay();
       } else {
         clearInterval(timer);
+        localStorage.setItem("isTimerRunning", "false");
         lastpage.style.zIndex = 1;
       }
     }, 1000);
   }
 }
+
+window.addEventListener("beforeunload", () => {
+  clearInterval(timer);
+  localStorage.setItem("isTimerRunning", "false");
+});
 
 // Prevent timer reset on answer submission
 document.querySelector(".submitbtn").addEventListener("click", (event) => {

@@ -61,21 +61,27 @@ function updateDisplay() {
 }
 
 function startTimer() {
-  if (!isTimerRunning) {
+  if (!timer) {
     isTimerRunning = true;
-    localStorage.setItem("isTimerRunning", true); // Set the flag in localStorage
+    localStorage.setItem("isTimerRunning", "true");
+    
     timer = setInterval(() => {
       if (timeLeft > 0) {
         timeLeft--;
-        localStorage.setItem("timeLeft", timeLeft); // Save the remaining time to localStorage
+        localStorage.setItem("timeLeft", timeLeft);
         updateDisplay();
       } else {
         clearInterval(timer);
+        localStorage.setItem("isTimerRunning", "false");
         lastpage.style.zIndex = 1;
       }
     }, 1000);
   }
 }
+window.addEventListener("beforeunload", () => {
+  clearInterval(timer);
+  localStorage.setItem("isTimerRunning", "false");
+});
 
 
 // Prevent timer reset on answer submission
@@ -94,3 +100,6 @@ updateDisplay();
 document.querySelector('.nextsegmentbtn').addEventListener('click',() => {
     alert("Are you sure ?");
 })
+
+clearInterval(timer); // Pause timer
+    localStorage.setItem("isTimerRunning", "false"); // Store paused state

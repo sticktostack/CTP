@@ -31,15 +31,23 @@ let arrayofpdfLinks = [
   "https://drive.google.com/file/d/1RdvB2S0AIjqX4w-kXlaNwvse7QbqEAvR/view?usp=drive_link",
 ];
 
+
+
 startbtn.addEventListener("click", () => {
+
+  setTimeout(() => {
+    document.querySelector('.startbtn').innerHTML ="Game started"
+  }, 100);
+
   document.querySelector(".hints").style.opacity = 1;
   document.querySelector(".pdfbox").style.opacity = 1;
   counter = true;
   pdfLink.target = "_blank";
   pdfLink.href = arrayofpdfLinks[hintIndex];
-  setTimeout(() => {
-    startbtn.textContent = "Game Started";
-  }, 100);
+  
+  if (!isTimerRunning) { 
+    startTimer(); // Resume timer only when user clicks
+  }
 
   setTimeout(() => {
     startbtn.style.opacity = 0;
@@ -57,11 +65,16 @@ function updateDisplay() {
   document.querySelector(".timer").textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 }
 
+if (isTimerRunning) {
+  isTimerRunning = false; // Ensure it stays paused until the user starts
+  localStorage.setItem("isTimerRunning", "false");
+}
+
 function startTimer() {
-  if (!isTimerRunning) {
+  if (!timer) {
     isTimerRunning = true;
     localStorage.setItem("isTimerRunning", "true");
-
+    
     timer = setInterval(() => {
       if (timeLeft > 0) {
         timeLeft--;
@@ -69,15 +82,26 @@ function startTimer() {
         updateDisplay();
       } else {
         clearInterval(timer);
-        localStorage.removeItem("isTimerRunning");
+        localStorage.setItem("isTimerRunning", "false");
+        lastpage.style.zIndex = 1;
       }
     }, 1000);
   }
 }
 
+window.addEventListener("beforeunload", () => {
+  clearInterval(timer);
+  localStorage.setItem("isTimerRunning", "false");
+});
+
+
 if (isTimerRunning) {
   startTimer();
 }
+
+document.querySelector('.nextsegmentbtn').addEventListener('click',()=>{
+  alert("Are you sure ?");
+})
 
 nextBtn.addEventListener("click", () => {
   if (counter === true) {
@@ -124,3 +148,5 @@ document.querySelector(".submitbtn").addEventListener("click", (event) => {
   }
 });
 updateDisplay();
+clearInterval(timer); // Pause timer
+    localStorage.setItem("isTimerRunning", "false");
