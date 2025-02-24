@@ -15,11 +15,16 @@ let timer = null;
 // let isTimerRunning = localStorage.getItem("isTimerRunning") === "true";
 isTimerRunning = false;
 
-let arrayofWords = ["elmbio", "edrfin", "dguetb", "tvelra"];
+let arrayofWords = [
+    // "elmbio", 
+    "edrfin", 
+    // "dguetb", 
+    "tvelra"];
+    
 let arrayofHints = [
-  "You probably check in every minute.",
+//   "You probably check in every minute.",
   "Not family by blood, but by choice.",
-  "Spending wisely, Saving smartly.",
+//   "Spending wisely, Saving smartly.",
   "What you do when you pack your bags and go.",
 ];
 

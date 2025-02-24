@@ -15,10 +15,10 @@ let isTimerRunning = localStorage.getItem("isTimerRunning") === "true";
 let arrayofHints = [
   'Opposite of "dark"',
   "The shape with three sides",
-  'Reverse the word "desserts"',
-  "What is always in front of you but can’t be seen?",
+  // 'Reverse the word "desserts"',
+  // "What is always in front of you but can’t be seen?",
   "What’s full of holes but still holds water?",
-  "If we skip a day after Tuesday, where do we land?",
+  // "If we skip a day after Tuesday, where do we land?",
 ];
 
 startbtn.addEventListener("click", () => {

@@ -9,7 +9,7 @@ let nextbtn = document.querySelector(".nextbtn");
 let prevbtn = document.querySelector(".prevbtn");
 let imagebox = document.querySelector(".imagebox"); // Ensure this is an <img> element
 let image = document.querySelector('.image')
-let arrayofImages = ["1.png", "2.png", "3.png", "4.png"];
+let arrayofImages = ["1.png", "3.png",];
 // let counter = true; // Define counter, assuming it's part of game logic
 
 nextbtn.addEventListener("click", () => {

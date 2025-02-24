@@ -16,19 +16,19 @@ let prevbtn = document.querySelector(".prevbtn");
 let arrayofHints = [
   "The capital of France.",
   "The color of the sky.",
-  "What goes up but never comes down?",
-  'The last three letter of the word "alphabet".',
+  // "What goes up but never comes down?",
+  // 'The last three letter of the word "alphabet".',
   "It is an odd number. Take away a letter and it becomes even. What number it it? (in words)",
-  "Which month has 28 days? (in words)",
+  // "Which month has 28 days? (in words)",
 ];
 
 let arrayofpdfLinks = [
   "https://drive.google.com/file/d/12RyVmw2HVZ0DwCo8P2wL_FarKXisuIeP/view?usp=drive_link",
   "https://drive.google.com/file/d/1F0QmRg0-d3Kl_-LMrcN0ID3vvXYDzLsP/view?usp=drive_link",
-  "https://drive.google.com/file/d/1rSOIe5UVY4Jk30DGScJoRElSHloSA1nA/view?usp=drive_link",
-  "https://drive.google.com/file/d/1v1HQc6IiN9BwXDGnj5aCGss9ZZicb9Ij/view?usp=drive_link",
+  // "https://drive.google.com/file/d/1rSOIe5UVY4Jk30DGScJoRElSHloSA1nA/view?usp=drive_link",
+  // "https://drive.google.com/file/d/1v1HQc6IiN9BwXDGnj5aCGss9ZZicb9Ij/view?usp=drive_link",
   "https://drive.google.com/file/d/1f5vjd0zLc9Nr7o-6Ypzb6MzjD_rZLL3A/view?usp=drive_link",
-  "https://drive.google.com/file/d/1RdvB2S0AIjqX4w-kXlaNwvse7QbqEAvR/view?usp=drive_link",
+  // "https://drive.google.com/file/d/1RdvB2S0AIjqX4w-kXlaNwvse7QbqEAvR/view?usp=drive_link",
 ];
 
 
@@ -148,5 +148,5 @@ document.querySelector(".submitbtn").addEventListener("click", (event) => {
   }
 });
 updateDisplay();
-clearInterval(timer); 
-    localStorage.setItem("isTimerRunning", "false");
+// clearInterval(timer); 
+    // localStorage.setItem("isTimerRunning", "false");
