@@ -1,5 +1,5 @@
 let timeLeft = localStorage.getItem("timeLeft") || 40 * 60;
-let timer = null; // Store timer reference
+let timer = null; 
 let startbtn = document.querySelector(".startbtn");
 let counter = false;
 let isTimerRunning = localStorage.getItem("isTimerRunning") === 'true';
@@ -15,8 +15,8 @@ let arrayofImages = ["1.png", "2.png", "3.png", "4.png"];
 nextbtn.addEventListener("click", () => {
     if (counter === true) {
         if (imageIndex < arrayofImages.length - 1) {
-            imageIndex = (imageIndex + 1) % arrayofImages.length; // Corrected image cycling
-            image.src = arrayofImages[imageIndex]; // Set the image source correctly
+            imageIndex = (imageIndex + 1) % arrayofImages.length; 
+            image.src = arrayofImages[imageIndex];
         } else {
             alert("No more images left!");
         }
@@ -28,10 +28,10 @@ nextbtn.addEventListener("click", () => {
 prevbtn.addEventListener("click", () => {
     if (counter === true) {
         if (imageIndex > 0) {
-            imageIndex--; // Decrement the index if it's above 0
+            imageIndex--; 
             image.src = arrayofImages[imageIndex]; // Update the image
         } else {
-            alert("This is the first image!"); // Optionally alert the user
+            alert("This is the first image!"); 
         }
     } else {
         alert("Start the game first");
@@ -50,7 +50,7 @@ startbtn.addEventListener("click", () => {
   }, 500);
 
   if (!isTimerRunning) {
-    startTimer(); // Start timer only if it hasn't started yet
+    startTimer(); 
   }
 });
 
@@ -84,9 +84,9 @@ window.addEventListener("beforeunload", () => {
 });
 
 
-// Prevent timer reset on answer submission
+
 document.querySelector(".submitbtn").addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent form submission refresh if inside a form
+  event.preventDefault(); 
   let inputvalue = document.querySelector(".searcharea").value.trim();
   document.querySelector(".searcharea").value = "";
   if (inputvalue) {
@@ -101,5 +101,5 @@ document.querySelector('.nextsegmentbtn').addEventListener('click',() => {
     alert("Are you sure ?");
 })
 
-clearInterval(timer); // Pause timer
-    localStorage.setItem("isTimerRunning", "false"); // Store paused state
+clearInterval(timer); 
+    localStorage.setItem("isTimerRunning", "false"); 

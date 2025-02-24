@@ -54,7 +54,7 @@ startbtn.addEventListener("click", () => {
   }, 500);
 
   if (!isTimerRunning) {
-    startTimer(); // Start timer only if it hasn't started yet
+    startTimer(); 
   }
   
 });
@@ -66,7 +66,7 @@ function updateDisplay() {
 }
 
 if (isTimerRunning) {
-  isTimerRunning = false; // Ensure it stays paused until the user starts
+  isTimerRunning = false; 
   localStorage.setItem("isTimerRunning", "false");
 }
 
@@ -106,12 +106,12 @@ document.querySelector('.nextsegmentbtn').addEventListener('click',()=>{
 nextBtn.addEventListener("click", () => {
   if (counter === true) {
     if (hintIndex < arrayofHints.length - 1) {
-      hintIndex++; // Move to next hint
+      hintIndex++; 
       hints.innerHTML = arrayofHints[hintIndex];
 
-      // Update the PDF link based on the current hint index
+      
       pdfLink.href = arrayofpdfLinks[hintIndex]; 
-      pdfLink.target = "_blank"; // Ensure it opens in a new tab
+      pdfLink.target = "_blank";
     } else {
       alert("No more hints left!");
     }
@@ -123,12 +123,12 @@ nextBtn.addEventListener("click", () => {
 prevbtn.addEventListener("click", () => {
   if (counter === true) {
     if (hintIndex > 0) {
-      hintIndex--; // Move to previous hint
+      hintIndex--; 
       hints.innerHTML = arrayofHints[hintIndex];
 
-      // Update the PDF link based on current hintIndex
+      
       pdfLink.href = arrayofpdfLinks[hintIndex];
-      pdfLink.target = "_blank"; // Ensure it opens in a new tab
+      pdfLink.target = "_blank"; 
     } else {
       alert("No previous hints left!");
     }
@@ -138,7 +138,7 @@ prevbtn.addEventListener("click", () => {
 });
 
 document.querySelector(".submitbtn").addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent form submission refresh if inside a form
+  event.preventDefault(); 
   let inputvalue = document.querySelector(".searcharea").value.trim();
   document.querySelector(".searcharea").value = "";
   if (inputvalue) {
@@ -148,5 +148,5 @@ document.querySelector(".submitbtn").addEventListener("click", (event) => {
   }
 });
 updateDisplay();
-clearInterval(timer); // Pause timer
+clearInterval(timer); 
     localStorage.setItem("isTimerRunning", "false");

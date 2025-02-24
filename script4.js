@@ -12,7 +12,8 @@ let timeLeft = localStorage.getItem("timeLeft")
   : 40 * 60;
 
 let timer = null;
-let isTimerRunning = localStorage.getItem("isTimerRunning") === "true";
+// let isTimerRunning = localStorage.getItem("isTimerRunning") === "true";
+isTimerRunning = false;
 
 let arrayofWords = ["elmbio", "edrfin", "dguetb", "tvelra"];
 let arrayofHints = [
@@ -29,6 +30,12 @@ function updateDisplay() {
     hints.textContent = arrayofHints[currentIndex];
 }
 
+function updateDisplayforTime() {
+  let minutes = Math.floor(timeLeft / 60);
+  let seconds = timeLeft % 60;
+  document.querySelector(".timer").textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+}
+updateDisplayforTime()
 
 startbtn.addEventListener("click", () => {
 
@@ -48,7 +55,10 @@ startbtn.addEventListener("click", () => {
     updateDisplay();
 
     if (!isTimerRunning) {
+      isTimerRunning = true; 
+        localStorage.setItem("isTimerRunning", "true");
         startTimer();
+        // startTimer();
     }
 });
 
@@ -87,34 +97,24 @@ prevbtn.addEventListener("click", (e) => {
     
 });
 
-function updateDisplayforTime() {
-    let minutes = Math.floor(timeLeft / 60);
-    let seconds = timeLeft % 60;
-    document.querySelector(".timer").textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-  }
 
-  function startTimer() {
-    if (!timer) {
-      isTimerRunning = true;
-      localStorage.setItem("isTimerRunning", "true");
-  
+
+function startTimer() {
+  if (!timer) {
       timer = setInterval(() => {
-        if (timeLeft > 0) {
-          timeLeft--;
-          localStorage.setItem("timeLeft", timeLeft);
-          updateDisplayforTime();
-        } else {
-          clearInterval(timer);
-          localStorage.setItem("isTimerRunning", "false");
-        }
+          if (timeLeft > 0) {
+              timeLeft--;
+              localStorage.setItem("timeLeft", timeLeft);
+              updateDisplayforTime(); // Ensure the timer display updates properly
+          } else {
+              clearInterval(timer);
+              localStorage.setItem("isTimerRunning", "false");
+              timer = null;
+          }
       }, 1000);
-    }
   }
-  
+}
   // Resume timer immediately on page load
-  if (isTimerRunning) {
-    startTimer();
-  }
 
   updateDisplayforTime();
 // console.log(2%4);

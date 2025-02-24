@@ -9,7 +9,7 @@ let counter = false;
 let skipBtn = document.querySelector(".skipbtn");
 let prevbtn = document.querySelector(".prevbtn");
 
-let hintIndex = 0; // Track the current hint index
+let hintIndex = 0; 
 let isTimerRunning = localStorage.getItem("isTimerRunning") === "true";
 
 let arrayofHints = [
@@ -72,9 +72,9 @@ window.addEventListener("beforeunload", () => {
   localStorage.setItem("isTimerRunning", "false");
 });
 
-// Prevent timer reset on answer submission
+
 document.querySelector(".submitbtn").addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent form submission refresh if inside a form
+  event.preventDefault(); 
   let inputvalue = document.querySelector(".inputbox").value.trim();
   document.querySelector(".inputbox").value = "";
   if (inputvalue) {
@@ -90,8 +90,8 @@ finishbtn.addEventListener("click", () => {
 skipBtn.addEventListener("click", () => {
   if (counter === true) {
     if (hintIndex < arrayofHints.length) {
-      hints.innerHTML = arrayofHints[hintIndex]; // Show current hint
-      hintIndex++; // Move to the next hint
+      hints.innerHTML = arrayofHints[hintIndex];
+      hintIndex++; 
     } else {
       alert("No more hints left!");
     }
@@ -103,10 +103,10 @@ skipBtn.addEventListener("click", () => {
 function showPreviousHint() {
   if (counter === true) {
     if (hintIndex > 1) {
-      hintIndex--; // Move back to the previous hint
-      hints.innerHTML = arrayofHints[hintIndex - 1]; // Show the previous hint
+      hintIndex--; 
+      hints.innerHTML = arrayofHints[hintIndex - 1]; 
     } else {
-      alert("No previous hints available!"); // Stop at the first hint
+      alert("No previous hints available!"); 
     }
   } else {
     alert("Start the game first");
