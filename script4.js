@@ -126,3 +126,9 @@ function startTimer() {
 
 // currentIndex = (currentIndex + 1) % arrayofWords.length; // Loop to start if end is reached
 // currentIndex = (currentIndex - 1 + arrayofWords.length) % arrayofWords.length; // Loop to end if at the beginning
+let finishpage = document.querySelector('.finishpage')
+
+document.querySelector('.finishbtn').addEventListener('click',() => {
+finishpage.style.zIndex = '1';    
+document.querySelector('.finishbtn').style.opacity = 0;
+})
